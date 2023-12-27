@@ -7,13 +7,12 @@ const { LandingPage } = require("../pages/LandingPage");
 
 const test = base.extend({
   page: async ({ page }, use) => {
-    await use({
-      ...page,
-      landing: new LandingPage(page),
-      login: new LoginPage(page),
-      toast: new Toast(page),
-      movies: new MoviePage(page),
-    });
+    const context = page;
+    context["landing"] = new LandingPage(page);
+    context["login"] = new LoginPage(page);
+    context["movies"] = new MoviePage(page);
+    context["toast"] = new Toast(page);
+    await use(context);
   },
 });
 export { test, expect };
