@@ -40,6 +40,9 @@ export class Movies {
       .click();
     await this.submit();
     await this.alertHaveText("");
+    await this.page
+      .locator("input[name=cover]")
+      .setInputFiles(`test/support/fixtures/${movie.cover}`);
   }
   async alertHaveText(text) {
     const alert = this.page.locator("span[class$=alert]");

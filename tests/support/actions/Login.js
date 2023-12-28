@@ -5,10 +5,10 @@ export class Login {
     this.page = page;
   }
 
-  async do(email, password) {
+  async do(email, password, userName) {
     this.visit();
     this.submit(email.password);
-    this.isLoggedIn();
+    this.isLoggedIn(userName);
   }
   async visit() {
     await this.page.goto("http://localhost:3000/admin/login");
@@ -25,11 +25,14 @@ export class Login {
     const alert = this.page.locator("span[class$=alert]");
     await expect(alert).toHaveText(text);
   }
-  async isLoggedIn() {
+  async isLoggedIn(userName) {
     const logoutLink = this.page.locator('a[href="/logout"]');
+    const loggerUser = this.page.locator(".logged-user");
+
     await this.page.waitForLoadState("networkidle");
     await expect(logoutLink).toBeVisible();
     await expect(this.page).toHaveURL("http://localhost:3000/admin/movies");
     await expect(this.page).toHaveURL(/.*admin/);
+    await expect(loggerUser).toHaveText(`Olá, ${userName}`);
   }
 }
