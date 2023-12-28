@@ -2,22 +2,22 @@ import { Toast } from "./Components";
 
 const { expect } = require("@playwright/test");
 
-export class MoviePage {
+export class Movies {
   constructor(page) {
     this.page = page;
   }
-  async isLoggedIn() {
-    const logoutLink = this.page.locator('a[href="/logout"]');
-    await this.page.waitForLoadState("networkidle");
-    await expect(logoutLink).toBeVisible();
-    await expect(this.page).toHaveURL("http://localhost:3000/admin/movies");
-    await expect(this.page).toHaveURL(/.*admin/);
+
+  async goForm() {
+    await this.page.locator('a[href$="register"]').click();
+  }
+  async submit() {
+    await this.page.getByRole("button", { name: "Cadastrar" }).click();
   }
   async create(title, overview, company, release_year) {
     //Try to find element a with property href who starts with value register - await this.page.locator('a[href^="register"]').click()
     //Try to find element a with property href who contains value register - await this.page.locator('a[href*="register"]').click()
     //Try to find element a with property href who ends with value register -
-    await this.page.locator('a[href$="register"]').click();
+    await this.goForm();
 
     await this.page.getByLabel("Titulo do filme").fill(title);
     await this.page.getByLabel("Sinopse").fill(overview);
@@ -38,6 +38,11 @@ export class MoviePage {
       .locator(".react-select__option")
       .filter({ hasText: release_year })
       .click();
-    await this.page.getByRole("button", { name: "Cadastrar" }).click();
+    await this.submit();
+    await this.alertHaveText("");
+  }
+  async alertHaveText(text) {
+    const alert = this.page.locator("span[class$=alert]");
+    await expect(alert).toHaveText(text);
   }
 }

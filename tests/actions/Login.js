@@ -1,8 +1,14 @@
 const { expect } = require("@playwright/test");
 
-export class LoginPage {
+export class Login {
   constructor(page) {
     this.page = page;
+  }
+
+  async do(email, password) {
+    this.visit();
+    this.submit(email.password);
+    this.isLoggedIn();
   }
   async visit() {
     await this.page.goto("http://localhost:3000/admin/login");
@@ -18,5 +24,12 @@ export class LoginPage {
   async alertHaveText(text) {
     const alert = this.page.locator("span[class$=alert]");
     await expect(alert).toHaveText(text);
+  }
+  async isLoggedIn() {
+    const logoutLink = this.page.locator('a[href="/logout"]');
+    await this.page.waitForLoadState("networkidle");
+    await expect(logoutLink).toBeVisible();
+    await expect(this.page).toHaveURL("http://localhost:3000/admin/movies");
+    await expect(this.page).toHaveURL(/.*admin/);
   }
 }

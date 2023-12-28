@@ -5,11 +5,11 @@ test("deve cadastrar um lead na fila de espera ", async ({ page }) => {
   const message =
     "Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!";
 
-  await page.landing.visit();
-  await page.landing.openLeadModal();
+  await page.leads.visit();
+  await page.leads.openLeadModal();
   const leadName = faker.person.fullName();
   const leadEmail = faker.internet.email();
-  await page.landing.submitLeadForm(leadName, leadEmail);
+  await page.leads.submitLeadForm(leadName, leadEmail);
   await page.toast.containText(message);
 });
 
@@ -30,47 +30,47 @@ test("nao deve cadastrar quando email jah existe ", async ({
   });
   expect(newLead.ok()).toBeTruthy();
 
-  await page.landing.visit();
-  await page.landing.openLeadModal();
-  await page.landing.submitLeadForm(leadName, leadEmail);
+  await page.leads.visit();
+  await page.leads.openLeadModal();
+  await page.leads.submitLeadForm(leadName, leadEmail);
   await page.toast.containText(message);
 });
 
 test("nao deve cadastrar com email incorreto ", async ({ page }) => {
-  await page.landing.visit();
-  await page.landing.openLeadModal();
+  await page.leads.visit();
+  await page.leads.openLeadModal();
 
-  await page.landing.submitLeadForm(
+  await page.leads.submitLeadForm(
     "Giovani Mombelli Mussio",
     "giomussio.gmail.com"
   );
-  await page.landing.alertHaveText("Email incorreto");
+  await page.leads.alertHaveText("Email incorreto");
 });
 
 test("nao deve cadastrar quando o nome nao eh preenchido ", async ({
   page,
 }) => {
-  await page.landing.visit();
-  await page.landing.openLeadModal();
-  await page.landing.submitLeadForm("", "giomussio@gmail.com");
-  await page.landing.alertHaveText("Campo obrigatório");
+  await page.leads.visit();
+  await page.leads.openLeadModal();
+  await page.leads.submitLeadForm("", "giomussio@gmail.com");
+  await page.leads.alertHaveText("Campo obrigatório");
 });
 
 test("nao deve cadastrar quando o email nao eh preenchido ", async ({
   page,
 }) => {
-  await page.landing.visit();
-  await page.landing.openLeadModal();
-  await page.landing.submitLeadForm("Giovani Mombelli Mussio", "");
-  await page.landing.alertHaveText("Campo obrigatório");
+  await page.leads.visit();
+  await page.leads.openLeadModal();
+  await page.leads.submitLeadForm("Giovani Mombelli Mussio", "");
+  await page.leads.alertHaveText("Campo obrigatório");
 });
 
 test("nao deve cadastrar quando nenhum campo eh preenchido ", async ({
   page,
 }) => {
-  await page.landing.visit();
-  await page.landing.openLeadModal();
-  await page.landing.submitLeadForm("", "");
+  await page.leads.visit();
+  await page.leads.openLeadModal();
+  await page.leads.submitLeadForm("", "");
   //in this scenario the locator have 2 results, using this array it's possible to validate the message in this two locators
-  await page.landing.alertHaveText(["Campo obrigatório", "Campo obrigatório"]);
+  await page.leads.alertHaveText(["Campo obrigatório", "Campo obrigatório"]);
 });
