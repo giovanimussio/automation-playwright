@@ -7,7 +7,7 @@ export class Login {
 
   async do(email, password, userName) {
     this.visit();
-    this.submit(email.password);
+    this.submit(email, password);
     this.isLoggedIn(userName);
   }
   async visit() {

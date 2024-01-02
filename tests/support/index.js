@@ -9,7 +9,7 @@ const test = base.extend({
   page: async ({ page }, use) => {
     const context = page;
 
-    context["landing"] = new Leads(page);
+    context["leads"] = new Leads(page);
     context["login"] = new Login(page);
     context["movies"] = new Movies(page);
     context["toast"] = new Toast(page);
