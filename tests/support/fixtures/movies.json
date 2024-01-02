@@ -7,6 +7,14 @@
     "featured": true,
     "cover": "/covers/movies/wwz.png"
   },
+  "duplicate": {
+    "title": "Resident Evil: O Hospedeiro",
+    "overview": "Um ex-investigador da ONU é chamado para investigar a propagação de um vírus mortal que transforma as vítimas em zumbis, ameaçando dizimar a população mundial.",
+    "company": "Paramount Pictures",
+    "release_year": 2013,
+    "featured": true,
+    "cover": "/covers/movies/resident-evil.jpg"
+  },
   "resident_evil_o_hospedeiro": {
     "title": "Resident Evil: O Hospedeiro",
     "overview": "Alice se junta a sobreviventes para enfrentar a Corporação Umbrella e os zumbis mutantes criados por ela.",
