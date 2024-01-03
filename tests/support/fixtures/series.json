@@ -1,0 +1,84 @@
+{
+  "horror_tv_series": [
+    {
+      "title": "The Walking Dead",
+      "overview": "In a post-apocalyptic world, a group of survivors must navigate through hordes of zombies and face other challenges to stay alive.",
+      "release_year": 2010,
+      "number_of_seasons": 11,
+      "company": "AMC",
+      "cover": "/covers/series/The_Walking_Dead.jpg"
+    },
+    {
+      "title": "Hannibal",
+      "overview": "FBI profiler Will Graham forms a complex relationship with the brilliant and cannibalistic psychiatrist Dr. Hannibal Lecter as they solve gruesome crimes.",
+      "release_year": 2013,
+      "number_of_seasons": 3,
+      "company": "NBC",
+      "cover": "/covers/series/Hannibal.jpg"
+    },
+    {
+      "title": "The Exorcist",
+      "overview": "Two priests confront a family's demonic possession and work to rid them of the evil forces threatening their lives.",
+      "release_year": 2016,
+      "number_of_seasons": 2,
+      "company": "Fox",
+      "cover": "/covers/series/Supernatural.jpg"
+    },
+    {
+      "title": "Supernatural",
+      "overview": "Two brothers, Sam and Dean Winchester, hunt demons, ghosts, monsters, and other supernatural beings across the country.",
+      "release_year": 2005,
+      "number_of_seasons": 15,
+      "company": "The CW",
+      "cover": "/covers/series/The_Walking_Dead.jpg"
+    },
+    {
+      "title": "Penny Dreadful",
+      "overview": "Set in Victorian London, this series brings together classic literary characters as they confront supernatural threats and dark secrets.",
+      "release_year": 2014,
+      "number_of_seasons": 3,
+      "company": "Showtime",
+      "cover": "/covers/series/Penny_Dreadful.jpg"
+    },
+    {
+      "title": "Stranger Things",
+      "overview": "A group of kids in a small town uncover a series of supernatural mysteries and government experiments when a young girl with telekinetic powers appears.",
+      "release_year": 2016,
+      "number_of_seasons": 4,
+      "company": "Netflix",
+      "cover": "/covers/series/stranger_things.jpeg"
+    },
+    {
+      "title": "American Horror Story",
+      "overview": "An anthology series that explores different horror themes and storylines in each season, featuring a recurring cast in various roles.",
+      "release_year": 2011,
+      "number_of_seasons": 10,
+      "company": "FX",
+      "cover": "/covers/series/American_horror.jpg"
+    },
+    {
+      "title": "The Haunting of Hill House",
+      "overview": "A family is haunted by traumatic events that occurred in their old home and must confront the ghosts of their past.",
+      "release_year": 2018,
+      "number_of_seasons": 1,
+      "company": "Netflix",
+      "cover": "/covers/series/The_Haunting_of_Hill_House.jpg"
+    },
+    {
+      "title": "Bates Motel",
+      "overview": "A prequel to Alfred Hitchcock's Psycho, this series explores the complex relationship between Norman Bates and his mother, Norma.",
+      "release_year": 2013,
+      "number_of_seasons": 5,
+      "company": "A&E",
+      "cover": "/covers/series/Bates_Motel_.jpg"
+    },
+    {
+      "title": "The Witcher",
+      "overview": "Geralt of Rivia, a monster hunter, navigates a world filled with dangerous creatures, sorcery, and political intrigue.",
+      "release_year": 2019,
+      "number_of_seasons": 2,
+      "company": "Netflix",
+      "cover": "/covers/series/witcher.jpg"
+    }
+  ]
+}
