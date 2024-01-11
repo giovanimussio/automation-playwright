@@ -3,14 +3,14 @@ const { faker } = require("@faker-js/faker");
 
 test("deve cadastrar um lead na fila de espera ", async ({ page }) => {
   const message =
-    "Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!";
+    "Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato.";
 
   await page.leads.visit();
   await page.leads.openLeadModal();
   const leadName = faker.person.fullName();
   const leadEmail = faker.internet.email();
   await page.leads.submitLeadForm(leadName, leadEmail);
-  await page.toast.containText(message);
+  await page.popup.haveText(message);
 });
 
 test("nao deve cadastrar quando email jah existe ", async ({
@@ -18,7 +18,7 @@ test("nao deve cadastrar quando email jah existe ", async ({
   request,
 }) => {
   const message =
-    "O endereço de e-mail fornecido já está registrado em nossa fila de espera.";
+    "Verificamos que o endereço de e-mail fornecido já consta em nossa lista de espera. Isso significa que você está um passo mais perto de aproveitar nossos serviços.";
   const leadName = faker.person.fullName();
   const leadEmail = faker.internet.email();
 
@@ -33,7 +33,7 @@ test("nao deve cadastrar quando email jah existe ", async ({
   await page.leads.visit();
   await page.leads.openLeadModal();
   await page.leads.submitLeadForm(leadName, leadEmail);
-  await page.toast.containText(message);
+  await page.popup.haveText(message);
 });
 
 test("nao deve cadastrar com email incorreto ", async ({ page }) => {
