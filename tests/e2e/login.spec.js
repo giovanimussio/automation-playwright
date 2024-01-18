@@ -9,9 +9,9 @@ test("deve logar como administrador", async ({ page }) => {
 test("nao deve logar quando a senha esta incorreta", async ({ page }) => {
   await page.login.visit();
   await page.login.submit("admin@zombieplus.com", "abc123");
-  const message = `Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.`;
+  const message = `Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.`;
 
-  await page.toast.containText(message);
+  await page.popup.haveText(message);
 });
 
 test("nao deve logar quando o campo email nao esta preenchido", async ({
